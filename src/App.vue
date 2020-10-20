@@ -1,32 +1,41 @@
 <template>
   <div id="app">
-    <h1>111111</h1>
+    <navMenuLeft ref='navMenuLeft'></navMenuLeft>
     <el-container>
-      <el-aside width="200px">Aside</el-aside>
-      <el-container>
-        <el-header>
-          <el-button @click="showDialog()">Button</el-button>
-          <myDialog ref='myDialog'>
-            <slot id="slotOne">
-              <h1>登录</h1>
-              <login></login>
-            </slot>
-          </myDialog>
-        </el-header>
-        <el-main>
-          <carousel></carousel>
-          <img src="./assets/logo.png">
-          <h1>注册</h1>
-          <register></register>
-          <h1>评分</h1>
-          <rate></rate>
-        </el-main>
-        <el-footer>
-          <bottom></bottom>
-        </el-footer>
-      </el-container>
+      <el-header>
+        <el-row :gutter="10">
+          <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+            <div class="grid-content bg-purple-light">
+             <el-button @click="showNavMenuLeft()">
+                <el-avatar icon="el-icon-user-solid"></el-avatar>
+              </el-button>
+            </div>
+          </el-col>
+          <el-col :xs="8" :sm="12" :md="16" :lg="18" :xl="22">
+            <div class="grid-content bg-purple-light">
+              <div>&nbsp;</div>
+            </div>
+          </el-col>
+          <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+            <div class="grid-content bg-purple-light">
+              <div>姓名</div>
+            </div>
+          </el-col>
+        </el-row>
+      </el-header>
+      <el-main>
+        <navMenuTop>
+          <carousel slot="slotOne"></carousel>
+          <rate slot="slotTwo"></rate>
+          <login slot="slotThree"></login>
+          <register slot="slotFour"></register>
+        </navMenuTop>
+      </el-main>
+      <el-footer>
+        <bottom></bottom>
+      </el-footer>
     </el-container>
-    <router-view/>
+    <!-- <router-view/> -->
   </div>
 </template>
 
@@ -37,27 +46,31 @@ import register from '@/components/Register.vue'
 import rate from '@/components/Rate.vue'
 import myDialog from '@/components/Dialog.vue'
 import carousel from '@/components/Carousel.vue'
+import navMenuLeft from '@/components/NavMenuLeft.vue'
+import navMenuTop from '@/components/NavMenuTop.vue'
 export default {
   name: 'App',
   data: function() {
-          return { visible: false }
+          return {
+            visible: false ,
+          }
         },
   components:{
-    bottom,login,register,rate,myDialog,carousel
+    bottom,login,register,rate,myDialog,carousel,navMenuLeft,navMenuTop
   },
   methods:{
     clickItem:function(path){
         this.$router.push(path);
     },
-    showDialog:function(){
-      this.$refs.myDialog.dialogFormVisible = true;
-      this.$refs.myDialog.title = '这是个标题';
+    showNavMenuLeft:function(){
+      this.$refs.navMenuLeft.drawer = true;
     }
   }
 }
 </script>
 
 <style>
+  /* @import url("../static/index.css"); */
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -66,6 +79,8 @@ export default {
   color: #2c3e50;
   /* margin-top: 60px; */
 }
+
+
 
   .el-header, .el-footer {
     background-color: #B3C0D1;
@@ -85,7 +100,7 @@ export default {
     background-color: #E9EEF3;
     color: #333;
     text-align: center;
-    line-height: 160px;
+    /* line-height: 160px; */
   }
 
   body > .el-container {

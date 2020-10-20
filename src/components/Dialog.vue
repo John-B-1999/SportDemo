@@ -3,7 +3,7 @@
     <div slot="title" class="dialog-footer">
       <span>{{title}}</span>
     </div>
-    <slot id="slotOne"></slot>
+    <slot name="slotOne"></slot>
     <div slot="footer" class="dialog-footer">
       <el-button @click="dialogFormVisible = false">取 消</el-button>
       <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
