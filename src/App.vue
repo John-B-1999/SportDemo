@@ -6,7 +6,7 @@
         <el-row :gutter="10">
           <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
             <div class="grid-content bg-purple-light">
-             <el-button @click="showNavMenuLeft()">
+             <el-button @click="testAxios()">
                 <el-avatar icon="el-icon-user-solid"></el-avatar>
               </el-button>
             </div>
@@ -64,6 +64,26 @@ export default {
     },
     showNavMenuLeft:function(){
       this.$refs.navMenuLeft.drawer = true;
+    },
+    testAxios:function(){
+      this.$http({
+            method: 'get',
+            url: '/api/user/findAll',
+         })
+         .then(function(response){
+           console.log(response);
+         })
+         .catch(function(error){
+           console.log(error)
+         })
+      // this.$http({
+      //       method: 'post',
+      //       url: '/user',
+      //       data: {
+      //         name: 'xiaoming',
+      //         info: '12'
+      //       }
+      //    })
     }
   }
 }
