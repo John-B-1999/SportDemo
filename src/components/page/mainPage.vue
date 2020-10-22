@@ -1,7 +1,7 @@
 <template>
-  <div id="main">
+  <div id="main" class="mainBox">
     <navMenuLeft ref='navMenuLeft'></navMenuLeft>
-    <el-container>
+    <el-container style="height: 100%;" direction="vertical">
       <el-header>
         <el-row :gutter="10">
           <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
@@ -23,9 +23,21 @@
           </el-col>
         </el-row>
       </el-header>
-      <el-main>
+      <el-main style="height: 60%;">
+        <!-- <navMenu></navMenu> -->
         <navMenuTop>
           <carousel slot="slotOne"></carousel>
+         <carousel slot="slotOne"></carousel>
+          <carousel slot="slotOne"></carousel>
+          <router-link to="/rrrr" slot="slotOne"><h3>路由1</h3></router-link>
+          <router-link to="/hhhh" slot="slotOne"><h3>路由2</h3></router-link>
+          <router-view slot="slotOne"></router-view>
+          <!-- <rate slot="slotOne"></rate>
+          <rate slot="slotOne"></rate>
+          <rate slot="slotOne"></rate>
+          <rate slot="slotOne"></rate> -->
+          <!-- <carousel slot="slotOne"></carousel> -->
+          <!-- <carousel slot="slotOne"></carousel> -->
           <rate slot="slotTwo"></rate>
           <login slot="slotThree"></login>
           <register slot="slotFour"></register>
@@ -47,6 +59,7 @@ import myDialog from '@/components/base/Dialog.vue'
 import carousel from '@/components/base/Carousel.vue'
 import navMenuLeft from '@/components/base/NavMenuLeft.vue'
 import navMenuTop from '@/components/base/NavMenuTop.vue'
+import navMenu from '@/components/base/NavMenu.vue'
 export default {
   name: 'mainPage',
   data: function() {
@@ -55,7 +68,7 @@ export default {
           }
         },
   components:{
-    bottom,login,register,rate,myDialog,carousel,navMenuLeft,navMenuTop
+    bottom,login,register,rate,myDialog,carousel,navMenuLeft,navMenuTop,navMenu
   },
   methods:{
     clickItem:function(path){
@@ -89,17 +102,22 @@ export default {
 </script>
 
 <style>
-  /* @import url("../static/index.css"); */
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  /* margin-top: 60px; */
-}
 
 
+  html,
+  body{
+    overflow:hidden;
+  }
+
+  html,
+  body,
+  #app,
+  .el-container,
+  .mainBox{
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+  }
 
   .el-header, .el-footer {
     background-color: #B3C0D1;
@@ -119,6 +137,7 @@ export default {
     background-color: #E9EEF3;
     color: #333;
     text-align: center;
+    height: max-content;
     /* line-height: 160px; */
   }
 

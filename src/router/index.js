@@ -11,9 +11,25 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '*',
+      redirect:'/'
+    },
+    {
       path: '/',
       name: 'mainPage',
-      component: mainPage
+      component: mainPage,
+      children:[
+            {
+              path: "rrrr",
+              name: "rate",
+              component: rate
+            },
+            {
+              path: "hhhh",
+              name: "HelloWorld",
+              component: HelloWorld
+            }
+          ]
     },
     {
       path: '/myhome',

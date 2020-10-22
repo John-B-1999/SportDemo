@@ -4,6 +4,14 @@
       <i class="iconfont icon-shouye1"></i>
       <p>首页</p>
     </div>
+    <div class="item" @click="clickItem('/plan')" :class="{active: $route.path==='/plan'}">
+      <i class="iconfont icon-shouye1"></i>
+      <p>计划</p>
+    </div>
+    <div class="item" @click="clickItem('/travel')" :class="{active: $route.path==='/travel'}">
+      <i class="iconfont icon-shouye1"></i>
+      <p>运动</p>
+    </div>
     <div class="item" @click="clickItem('/myhome')" :class="{active: $route.path==='/myhome'}">
       <i class="iconfont icon-wode"></i>
       <p>我的</p>
@@ -33,7 +41,7 @@
     height:60px;
   }
   .item{
-    margin:5px 20%;
+   margin:5px 7%;
     float:left;
   }
   .item p{
