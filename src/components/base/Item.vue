@@ -1,20 +1,20 @@
 <template>
   <div class="bottom">
     <div class="item" @click="clickItem('/')" :class="{active: $route.path==='/'}">
-      <i class="iconfont icon-shouye1"></i>
-      <p>首页</p>
+      <i class="el-icon-collection-tag"></i>
+      <!-- <p icon="el-icon-collection-tag"><el-avatar> 首页 </el-avatar></p> -->
     </div>
     <div class="item" @click="clickItem('/plan')" :class="{active: $route.path==='/plan'}">
-      <i class="iconfont icon-shouye1"></i>
-      <p>计划</p>
+      <i class="el-icon-date"></i>
+      <!-- <p icon="el-icon-date"><el-avatar> 计划 </el-avatar></p> -->
     </div>
     <div class="item" @click="clickItem('/travel')" :class="{active: $route.path==='/travel'}">
-      <i class="iconfont icon-shouye1"></i>
-      <p>运动</p>
+      <i class="el-icon-bicycle"></i>
+      <!-- <p icon="el-icon-bicycle"><el-avatar> 运动 </el-avatar></p> -->
     </div>
     <div class="item" @click="clickItem('/myhome')" :class="{active: $route.path==='/myhome'}">
-      <i class="iconfont icon-wode"></i>
-      <p>我的</p>
+      <i class="el-icon-user"></i>
+      <!-- <p icon="el-icon-user"><el-avatar> 我的 </el-avatar></p> -->
     </div>
   </div>
 </template>
@@ -41,8 +41,9 @@
     height:60px;
   }
   .item{
-   margin:5px 7%;
+   margin:-1px 7%;
     float:left;
+    width: 11%;
   }
   .item p{
     margin:0;

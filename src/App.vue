@@ -4,21 +4,21 @@
     <el-container style="height: 100%;" direction="vertical">
       <el-header>
         <el-row :gutter="10">
-          <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
-            <div class="grid-content bg-purple-light">
-             <el-button @click="testAxios()">
+          <el-col :xs="4" :sm="3" :md="4" :lg="3" :xl="1">
+            <div class="grid-content bg-purple-light myDiv" style="margin: left;">
+             <el-button @click="showNavMenuLeft()" class="myButton">
                 <el-avatar icon="el-icon-user-solid"></el-avatar>
               </el-button>
             </div>
           </el-col>
-          <el-col :xs="8" :sm="12" :md="16" :lg="18" :xl="22">
+          <el-col :xs="15" :sm="17" :md="15" :lg="18" :xl="22">
             <div class="grid-content bg-purple-light">
               <div>&nbsp;</div>
             </div>
           </el-col>
-          <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+          <el-col :xs="5" :sm="4" :md="5" :lg="3" :xl="1">
             <div class="grid-content bg-purple-light">
-              <div>姓名</div>
+              <div>John B</div>
             </div>
           </el-col>
         </el-row>
@@ -99,6 +99,24 @@ export default {
 html,
   body{
     overflow:hidden;
+  }
+
+  .myButton:focus,
+  .myButton:active{
+    background-color: #B3C0D1;
+  }
+
+  .myButton{
+    background-color: #B3C0D1;
+    border: none;
+  }
+
+  .myButton,
+  .myDiv{
+    padding: 0px;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 
   html,

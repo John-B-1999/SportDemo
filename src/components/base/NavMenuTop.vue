@@ -54,11 +54,19 @@
 
 <style>
 
+    ::-webkit-scrollbar {   
+      display: none; /* Chrome Safari 隐藏滚动条*/
+    }
+
     .root{
       height: 100%;
       overflow:hidden;
     }
 
+    .el-tabs__nav-scroll {
+        width: 100%;
+        overflow-x: auto;
+    }
    .root >>> .el-tabs__content{
       flex-grow: 1;
       overflow-y: scroll;
