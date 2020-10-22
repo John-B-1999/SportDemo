@@ -1,52 +1,17 @@
 <template>
   <div id="main" class="mainBox">
-    <navMenuLeft ref='navMenuLeft'></navMenuLeft>
-    <el-container style="height: 100%;" direction="vertical">
-      <el-header>
-        <el-row :gutter="10">
-          <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
-            <div class="grid-content bg-purple-light">
-             <el-button @click="testAxios()">
-                <el-avatar icon="el-icon-user-solid"></el-avatar>
-              </el-button>
-            </div>
-          </el-col>
-          <el-col :xs="8" :sm="12" :md="16" :lg="18" :xl="22">
-            <div class="grid-content bg-purple-light">
-              <div>&nbsp;</div>
-            </div>
-          </el-col>
-          <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
-            <div class="grid-content bg-purple-light">
-              <div>姓名</div>
-            </div>
-          </el-col>
-        </el-row>
-      </el-header>
-      <el-main style="height: 60%;">
-        <!-- <navMenu></navMenu> -->
-        <navMenuTop>
-          <carousel slot="slotOne"></carousel>
-         <carousel slot="slotOne"></carousel>
-          <carousel slot="slotOne"></carousel>
-          <router-link to="/rrrr" slot="slotOne"><h3>路由1</h3></router-link>
-          <router-link to="/hhhh" slot="slotOne"><h3>路由2</h3></router-link>
-          <router-view slot="slotOne"></router-view>
-          <!-- <rate slot="slotOne"></rate>
-          <rate slot="slotOne"></rate>
-          <rate slot="slotOne"></rate>
-          <rate slot="slotOne"></rate> -->
-          <!-- <carousel slot="slotOne"></carousel> -->
-          <!-- <carousel slot="slotOne"></carousel> -->
-          <rate slot="slotTwo"></rate>
-          <login slot="slotThree"></login>
-          <register slot="slotFour"></register>
-        </navMenuTop>
-      </el-main>
-      <el-footer>
-        <bottom></bottom>
-      </el-footer>
-    </el-container>
+    <!-- <navMenu></navMenu> -->
+    <navMenuTop>
+      <carousel slot="slotOne"></carousel>
+     <carousel slot="slotOne"></carousel>
+      <carousel slot="slotOne"></carousel>
+      <router-link to="/rrrr" slot="slotOne"><h3>路由1</h3></router-link>
+      <router-link to="/hhhh" slot="slotOne"><h3>路由2</h3></router-link>
+      <router-view slot="slotOne"></router-view>
+      <rate slot="slotTwo"></rate>
+      <login slot="slotThree"></login>
+      <register slot="slotFour"></register>
+    </navMenuTop>
   </div>
 </template>
 

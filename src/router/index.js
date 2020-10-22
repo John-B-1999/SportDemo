@@ -37,6 +37,16 @@ export default new Router({
       component: registerPage
     },
     {
+      path: '/travel',
+      name: 'loginPage',
+      component: loginPage
+    },
+    {
+      path: '/plan',
+      name: 'HelloWorld',
+      component: HelloWorld
+    },
+    {
       path: '/main',
       name: 'mainPage',
       component: mainPage
