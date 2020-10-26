@@ -5,6 +5,7 @@ import rate from '@/components/module/Rate.vue'
 import mainPage from '@/components/page/mainPage.vue'
 import loginPage from '@/components/page/loginPage.vue'
 import registerPage from '@/components/page/registerPage.vue'
+import myHomePage from '@/components/page/myHomePage.vue'
 
 Vue.use(Router)
 
@@ -33,8 +34,8 @@ export default new Router({
     },
     {
       path: '/myhome',
-      name: 'registerPage',
-      component: registerPage
+      name: 'myHomePage',
+      component: myHomePage
     },
     {
       path: '/travel',

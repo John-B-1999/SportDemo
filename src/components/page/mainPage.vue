@@ -1,5 +1,5 @@
 <template>
-  <div id="main" class="mainBox">
+  <div id="mainPage" class="mainBox">
     <!-- <navMenu></navMenu> -->
     <navMenuTop>
       <carousel slot="slotOne"></carousel>

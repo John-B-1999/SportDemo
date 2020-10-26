@@ -1,7 +1,7 @@
 <template>
   <el-tabs v-model="activeName" @tab-click="handleClick" class="root">
-    <el-tab-pane label="用户管理" name="first"
-    style="height:500px;overflow-y:auto;overflow-x:hidden;"
+    <el-tab-pane label="用户" name="first"
+    style="height:500px;overflow-y:visible;overflow-x:hidden;"
     v-infinite-scroll="load"
     infinite-scroll-disabled="disabled">
       <slot name="slotOne"></slot>
@@ -54,8 +54,8 @@
 
 <style>
 
-    ::-webkit-scrollbar {   
-      display: none; /* Chrome Safari 隐藏滚动条*/
+    ::-webkit-scrollbar {
+       display: none; /* Chrome Safari 隐藏滚动条 */
     }
 
     .root{
@@ -63,8 +63,12 @@
       overflow:hidden;
     }
 
+    el-tabs__item is-top,el-tabs__item is-top is-active{
+      width: 40%;
+    }
+
     .el-tabs__nav-scroll {
-        width: 100%;
+        width: 95%;
         overflow-x: auto;
     }
    .root >>> .el-tabs__content{
