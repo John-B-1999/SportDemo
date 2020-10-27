@@ -1,6 +1,9 @@
 <template>
   <div id="myHomePage">
     <el-row :gutter="10">
+      <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+        <mainCard></mainCard>
+      </el-col>
       <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
         <btnAndText :classVal = "elIconUser"></btnAndText>
       </el-col>
@@ -23,6 +26,7 @@
 <script>
   import card from "@/components/base/Card.vue"
   import btnAndText from '@/components/base/buttonAndText.vue'
+  import mainCard from '@/components/base/mainCard.vue'
   export default{
     name:"myHomePage",
     data:function(){
@@ -33,10 +37,16 @@
       }
     },
     components:{
-      card,btnAndText
+      card,btnAndText,mainCard
     }
   }
 </script>
 
-<style>
+<style scoped="scoped">
+  .el-col-xs-24{
+    padding:30px;
+  }
+  .el-col-xs-8{
+    padding:15px;
+  }
 </style>

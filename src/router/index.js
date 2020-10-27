@@ -6,6 +6,7 @@ import mainPage from '@/components/page/mainPage.vue'
 import loginPage from '@/components/page/loginPage.vue'
 import registerPage from '@/components/page/registerPage.vue'
 import myHomePage from '@/components/page/myHomePage.vue'
+import trainPage from '@/components/page/trainPage.vue'
 
 Vue.use(Router)
 
@@ -39,8 +40,8 @@ export default new Router({
     },
     {
       path: '/travel',
-      name: 'loginPage',
-      component: loginPage
+      name: 'trainPage',
+      component: trainPage
     },
     {
       path: '/plan',
