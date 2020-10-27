@@ -19,7 +19,7 @@
         </div>
       </el-col>
       <el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
-        <el-button type="text"><img src="../../assets/arrow-right.png" alt="" height="40px"></el-button>
+        <el-button type="text"><img src="@/assets/arrow-right.png" alt="" height="40px"></el-button>
       </el-col>
     </el-row>
   </el-card>

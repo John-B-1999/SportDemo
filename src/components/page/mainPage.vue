@@ -1,30 +1,19 @@
 <template>
   <div id="mainPage" class="mainBox">
-    <!-- <navMenu></navMenu> -->
     <navMenuTop>
-      <carousel slot="slotOne"></carousel>
-     <carousel slot="slotOne"></carousel>
-      <carousel slot="slotOne"></carousel>
+      <showPlan slot="slotOne"></showPlan>
       <router-link to="/rrrr" slot="slotOne"><h3>路由1</h3></router-link>
       <router-link to="/hhhh" slot="slotOne"><h3>路由2</h3></router-link>
       <router-view slot="slotOne"></router-view>
-      <rate slot="slotTwo"></rate>
-      <login slot="slotThree"></login>
-      <register slot="slotFour"></register>
+      <showCourse slot="slotTwo"></showCourse>
     </navMenuTop>
   </div>
 </template>
 
 <script>
-import bottom from '@/components/base/Item.vue'
-import login from '@/components/module/Login.vue'
-import register from '@/components/module/Register.vue'
-import rate from '@/components/module/Rate.vue'
-import myDialog from '@/components/base/Dialog.vue'
-import carousel from '@/components/base/Carousel.vue'
-import navMenuLeft from '@/components/base/NavMenuLeft.vue'
-import navMenuTop from '@/components/base/NavMenuTop.vue'
-import navMenu from '@/components/base/NavMenu.vue'
+import navMenuTop from '@/components/base/navMenu/NavMenuTop.vue'
+import showPlan from '@/components/module/main/showPlan.vue'
+import showCourse from '@/components/module/main/showCourse.vue'
 export default {
   name: 'mainPage',
   data: function() {
@@ -33,14 +22,11 @@ export default {
           }
         },
   components:{
-    bottom,login,register,rate,myDialog,carousel,navMenuLeft,navMenuTop,navMenu
+    navMenuTop,showPlan,showCourse
   },
   methods:{
     clickItem:function(path){
         this.$router.push(path);
-    },
-    showNavMenuLeft:function(){
-      this.$refs.navMenuLeft.drawer = true;
     },
     testAxios:function(){
       this.$http({
@@ -103,7 +89,6 @@ export default {
     color: #333;
     text-align: center;
     height: max-content;
-    /* line-height: 160px; */
   }
 
   body > .el-container {

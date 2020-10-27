@@ -24,9 +24,9 @@
 </template>
 
 <script>
-  import card from "@/components/base/Card.vue"
+  import card from "@/components/base/card/Card.vue"
   import btnAndText from '@/components/base/buttonAndText.vue'
-  import mainCard from '@/components/base/mainCard.vue'
+  import mainCard from '@/components/base/card/mainCard.vue'
   export default{
     name:"myHomePage",
     data:function(){

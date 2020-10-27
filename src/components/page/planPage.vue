@@ -1,5 +1,5 @@
 <template>
-  <div id="trainPage">
+  <div id="planPage">
     <el-row :gutter="10">
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
         <trainCard></trainCard>
@@ -26,7 +26,7 @@
 <script>
   import trainCard from '@/components/base/card/trainCard.vue'
   export default {
-    name: 'trainPage',
+    name: 'planPage',
     components:{
       trainCard
     }

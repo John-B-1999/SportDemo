@@ -1,18 +1,11 @@
 <template>
-  <el-card shadow="always">
-    <el-row>
-      <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-        <div @click="myClick()" style="background-image: url(../../assets/logo.png);">
-          <!-- <img src="@/assets/muscle.jpg" width="100%" height="200px"/> -->
-        </div>
-      </el-col>
-    </el-row>
-  </el-card>
+  <planCard></planCard>
 </template>
 
 <script>
+  import planCard from '@/components/base/card/planCard.vue'
   export default{
-    name:"trainCard",
+    name:"showPlan",
     data:function(){
       return{
         circleUrl: "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
@@ -23,6 +16,9 @@
       myClick:function(){
         console.log("点击");
       }
+    },
+    components:{
+      planCard
     }
   }
 </script>
@@ -30,5 +26,6 @@
 <style scoped="scoped">
   .el-card >>> .el-card__body{
     padding: 0px;
+    margin: 0px;
   }
 </style>

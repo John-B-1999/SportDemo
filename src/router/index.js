@@ -3,10 +3,9 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import rate from '@/components/module/Rate.vue'
 import mainPage from '@/components/page/mainPage.vue'
-import loginPage from '@/components/page/loginPage.vue'
-import registerPage from '@/components/page/registerPage.vue'
 import myHomePage from '@/components/page/myHomePage.vue'
 import trainPage from '@/components/page/trainPage.vue'
+import planPage from '@/components/page/planPage.vue'
 
 Vue.use(Router)
 
@@ -45,8 +44,8 @@ export default new Router({
     },
     {
       path: '/plan',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'planPage',
+      component: planPage
     },
     {
       path: '/main',

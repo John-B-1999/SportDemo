@@ -1,20 +1,20 @@
 <template>
   <el-tabs v-model="activeName" @tab-click="handleClick" class="root">
-    <el-tab-pane label="用户" name="first"
+    <el-tab-pane label="训练" name="first"
     style="height:500px;overflow-y:visible;overflow-x:hidden;"
     v-infinite-scroll="load"
     infinite-scroll-disabled="disabled">
       <slot name="slotOne"></slot>
       <p v-if="loading">加载中...</p>
-      <p v-if="noMore">没有更多了</p>
+      <!-- <p v-if="noMore">没有更多了</p> -->
     </el-tab-pane>
-    <el-tab-pane label="配置管理" name="second">
+    <el-tab-pane label="跑步" name="second">
       <slot name="slotTwo"></slot>
     </el-tab-pane>
-    <el-tab-pane label="角色管理" name="third">
+    <el-tab-pane label="行走" name="third">
       <slot name="slotThree"></slot>
     </el-tab-pane>
-    <el-tab-pane label="定时任务补偿" name="fourth">
+    <el-tab-pane label="骑行" name="fourth">
       <slot name="slotFour"></slot>
     </el-tab-pane>
   </el-tabs>
