@@ -6,7 +6,7 @@
     infinite-scroll-disabled="disabled">
       <slot name="slotOne"></slot>
       <p v-if="loading">加载中...</p>
-      <!-- <p v-if="noMore">没有更多了</p> -->
+      <p v-if="noMore">没有更多了</p>
     </el-tab-pane>
     <el-tab-pane label="跑步" name="second">
       <slot name="slotTwo"></slot>

@@ -45,4 +45,7 @@
     padding: 0px;
     margin: 0px;
   }
+  .el-card{
+    border:10px;
+  }
 </style>

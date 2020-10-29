@@ -1,5 +1,13 @@
 <template>
-  <courseCard></courseCard>
+  <el-card shadow="always">
+    <div slot="header" class="clearfix">
+      <span style="float: left; padding: 7px;">卡片名称</span>
+      <el-button style="float:right;padding-right: 10px;" type="text" icon="el-icon-arrow-right"></el-button>
+    </div>
+    <div v-for="o in 6" :key="o" class="item">
+      <courseCard></courseCard>
+    </div>
+  </el-card>
 </template>
 
 <script>
@@ -8,8 +16,7 @@
     name:"showCourse",
     data:function(){
       return{
-        circleUrl: "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
-        o:["1","2","3","4"]
+
       }
     },
     methods:{
@@ -25,7 +32,33 @@
 
 <style scoped="scoped">
   .el-card >>> .el-card__body{
-    padding: 0px;
-    margin: 0px;
+      width: 100%;
+    	overflow-x: scroll;
+    	overflow-y: hidden;
+    	white-space: nowrap;
+      justify-content: space-between;
   }
+
+  .item{
+    display:inline-block;
+    box-sizing: border-box;
+    width:40%;
+    margin: 10px;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    display: table;
+    content: "";
+  }
+  .clearfix:after {
+    clear: both
+  }
+
+  .el-card__header{
+    padding: 0px;
+    padding-left: 10px;
+    padding-top: 3px;
+  }
+
 </style>

@@ -6,6 +6,7 @@
       <router-link to="/hhhh" slot="slotOne"><h3>路由2</h3></router-link>
       <router-view slot="slotOne"></router-view>
       <showCourse slot="slotTwo"></showCourse>
+      <run slot="slotThree"></run>
     </navMenuTop>
   </div>
 </template>
@@ -14,6 +15,7 @@
 import navMenuTop from '@/components/base/navMenu/NavMenuTop.vue'
 import showPlan from '@/components/module/main/showPlan.vue'
 import showCourse from '@/components/module/main/showCourse.vue'
+import run from '@/components/module/main/run.vue'
 export default {
   name: 'mainPage',
   data: function() {
@@ -22,7 +24,7 @@ export default {
           }
         },
   components:{
-    navMenuTop,showPlan,showCourse
+    navMenuTop,showPlan,showCourse,run
   },
   methods:{
     clickItem:function(path){
