@@ -5,13 +5,19 @@
 			  <el-button style="float: left;" type="text">朴素按钮1</el-button>
 		  </el-col>
       <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12">
-        <el-button style="float: left;" type="text">朴素按钮2</el-button>
+        <div style="display: flex;
+                    align-items: flex-end;">
+          <span class="font-family" style="font-size: 20px; float: left; height: 26px;">&nbsp;&nbsp;{{metre}}公里</span>
+        </div>
       </el-col>
       <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12">
-        <el-button style="float: right;" type="text">朴素按钮3</el-button>
+        <div style="display: flex;
+                    align-items: flex-end;height: 26px;">
+          <span class="font-family" style="font-size: 12px; float: right; heigth:26px;width: 100%;text-align: right;">等级{{grade}}</span>
+        </div>
       </el-col>
 		  <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-		  	  <greenProgress></greenProgress>
+		  	  <greenProgress style="width: 103%;"></greenProgress>
 		  </el-col>
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
       	  <div class="item mybackground"
@@ -35,7 +41,8 @@
     name:"run",
     data:function(){
       return{
-
+        metre:"111",
+        grade:"R4"
       }
     },
     components:{

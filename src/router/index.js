@@ -6,6 +6,7 @@ import mainPage from '@/components/page/mainPage.vue'
 import myHomePage from '@/components/page/myHomePage.vue'
 import trainPage from '@/components/page/trainPage.vue'
 import planPage from '@/components/page/planPage.vue'
+import Amap from '@/components/base/map.vue'
 
 Vue.use(Router)
 

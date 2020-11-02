@@ -10,10 +10,10 @@
 　　                  text-align: center;
 　　                  vertical-align: middle;">
             <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-              <span style="float: left;">1111</span>
+              <span class="font-family" style="font-size: 18px; float: left;">文字1</span>
             </el-col>
             <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-              <span style="float: left;">1111</span>
+              <span class="font-family" style="font-size: 12px; float: left;">文字2</span>
             </el-col>
           </div>
         </div>

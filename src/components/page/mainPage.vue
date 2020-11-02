@@ -7,6 +7,7 @@
       <router-view slot="slotOne"></router-view>
       <showCourse slot="slotTwo"></showCourse>
       <run slot="slotThree"></run>
+      <mapA slot="slotFour"></mapA>
     </navMenuTop>
   </div>
 </template>
@@ -16,6 +17,7 @@ import navMenuTop from '@/components/base/navMenu/NavMenuTop.vue'
 import showPlan from '@/components/module/main/showPlan.vue'
 import showCourse from '@/components/module/main/showCourse.vue'
 import run from '@/components/module/main/run.vue'
+import mapA from '@/components/base/map.vue'
 export default {
   name: 'mainPage',
   data: function() {
@@ -24,7 +26,7 @@ export default {
           }
         },
   components:{
-    navMenuTop,showPlan,showCourse,run
+    navMenuTop,showPlan,showCourse,run,mapA
   },
   methods:{
     clickItem:function(path){
