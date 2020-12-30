@@ -1,13 +1,13 @@
 <template>
-    <div class="amap-page-container">
-      <el-amap ref="map" vid="amapDemo" :amap-manager="amapManager" :center="center" :zoom="zoom" :plugin="plugin" :events="events" class="amap-demo">
-      </el-amap>
+  <div class="amap-page-container">
+    <el-amap ref="map" vid="amapDemo" :amap-manager="amapManager" :center="center" :zoom="zoom" :plugin="plugin" :events="events" class="amap-demo">
+    </el-amap>
 
-      <div class="toolbar">
-        <button @click="getMap()">get map</button>
-      </div>
+    <div class="toolbar">
+      <button @click="getMap()">get map</button>
     </div>
-  </template>
+  </div>
+</template>
 
   <script>
     // NPM 方式
@@ -47,7 +47,6 @@
           }]
         };
       },
-
       methods: {
         getMap() {
           // amap vue component

@@ -6,7 +6,7 @@
         <el-row :gutter="10">
           <el-col :xs="4" :sm="3" :md="4" :lg="3" :xl="1">
             <div class="grid-content bg-purple-light myDiv" style="margin: left;">
-             <el-button @click="showNavMenuLeft()" class="myButton">
+             <el-button @click="testAxios()" class="myButton">
                 <el-avatar icon="el-icon-user-solid"></el-avatar>
               </el-button>
             </div>
