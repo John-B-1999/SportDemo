@@ -31,26 +31,6 @@ export default {
   methods:{
     clickItem:function(path){
         this.$router.push(path);
-    },
-    testAxios:function(){
-      this.$http({
-            method: 'get',
-            url: '/api/user/findAll',
-         })
-         .then(function(response){
-           console.log(response);
-         })
-         .catch(function(error){
-           console.log(error)
-         })
-      // this.$http({
-      //       method: 'post',
-      //       url: '/user',
-      //       data: {
-      //         name: 'xiaoming',
-      //         info: '12'
-      //       }
-      //    })
     }
   }
 }

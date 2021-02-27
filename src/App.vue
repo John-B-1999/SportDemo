@@ -57,8 +57,12 @@ export default {
     },
     testAxios:function(){
       this.$http({
-            method: 'get',
-            url: '/api/user/findAll',
+            method: 'post',
+            url: '/api/user/findPage',
+            data:{
+              pageNum: 1,
+              pageSize: 2
+            }
          })
          .then(function(response){
            console.log(response);
