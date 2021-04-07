@@ -4,20 +4,23 @@
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
         <mainCard></mainCard>
       </el-col>
-      <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
+      <!-- <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
         <btnAndText :classVal = "elIconUser"></btnAndText>
       </el-col>
       <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
-        <btnAndText :classVal = "elIconPhone" ></btnAndText>
+        <btnAndText :classVal = "elIconPhone"></btnAndText>
       </el-col>
       <el-col :xs="8" :sm="8" :md="8" :lg="8" :xl="8">
-        <btnAndText :classVal = "elIconMore" ></btnAndText>
+        <btnAndText :classVal = "elIconPhone" ></btnAndText> -->
+      <!-- </el-col> -->
+      <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12">
+        <card message = '运动数据' textOne = '总运动' textTwo = '1,526分钟' textThree = '本周运动30分钟'></card>
       </el-col>
       <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12">
-        <card></card>
+        <card message = '健康数据' textOne = '体重' textTwo = '79.0kg' textThree = '上次记录3天'></card>
       </el-col>
-      <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12">
-        <card></card>
+      <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+        <el-button type="primary">填写身体数据<i class="el-icon-upload el-icon--right"></i></el-button>
       </el-col>
     </el-row>
   </div>

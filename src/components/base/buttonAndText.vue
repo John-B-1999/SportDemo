@@ -14,7 +14,8 @@
         classVal: {
             // type: String, //指定传入的类型
             //type 也可以是一个自定义构造器函数，使用 instanceof 检测。
-        }
+        },
+        text: ''
     },
     data(){
       return{

@@ -2,10 +2,10 @@
   <div id="planPage">
     <el-row :gutter="10">
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-        <trainCard></trainCard>
+        <trainCard textOne = '哑铃训练' textTwo = '中级'></trainCard>
       </el-col>
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-        <trainCard></trainCard>
+        <trainCard textOne = '哑铃训练' textTwo = '初级'></trainCard>
       </el-col>
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
         <trainCard></trainCard>

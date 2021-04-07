@@ -2,7 +2,7 @@
   <div id="run">
 	  <el-row>
 		  <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-			  <el-button style="float: left;" type="text">朴素按钮1</el-button>
+			  <el-button style="float: left;" type="text">累计跑步距离</el-button>
 		  </el-col>
       <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12">
         <div style="display: flex;
@@ -25,9 +25,9 @@
           <div style="display: table-cell;
           　　                  text-align: center;
           　　                  vertical-align: middle;">
-          <el-button style="" type="text">朴素按钮4</el-button>
-          <el-button style="" type="text">朴素按钮5</el-button>
-          <el-button style="" type="text">朴素按钮6</el-button>
+          <el-button style="" type="text">目标</el-button>
+          <el-button type="primary">开始</el-button>
+          <el-button style="" type="text">更多</el-button>
           </div>
           </div>
       </el-col>

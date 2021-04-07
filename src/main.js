@@ -8,6 +8,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 import VueAMap from 'vue-amap';
 import router from './router'
 import axios from 'axios'
+import Vuex from 'vuex';
+import store from'./store/index.js'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI);
@@ -34,10 +36,19 @@ VueAMap.initAMapApiLoader({
     v: '1.4.4'
 });
 
+//视频功能
+import VideoPlayer from 'vue-video-player'
+import 'vue-video-player/src/custom-theme.css'
+import 'video.js/dist/video-js.css'
+
+Vue.use(VideoPlayer)
+
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>',
   render: h => h(App)

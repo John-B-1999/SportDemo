@@ -7,7 +7,7 @@
       :center="center"
       vid="amapDemo"
       ref="reds"
-      style="width:100vw;height:80vh"
+      style="width:90vw;height:20vh"
       :events="events"
     ></el-amap>
   </div>
@@ -22,8 +22,8 @@ export default {
     let _obj = this;
     return {
       amapManager,
-      center: [116.303843, 39.983412],
-      // center: [116.397428, 39.90923],
+      // center: [116.303843, 39.983412],
+      center:[113.27324,23.15792],
       plugin: [
         {
           pName: "Scale",
@@ -34,7 +34,7 @@ export default {
           }
         }
       ],
-      zoom: 12,
+      zoom: 16,
       events: {
         init(o) {
           _obj.createMap();

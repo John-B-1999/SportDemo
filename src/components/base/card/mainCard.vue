@@ -9,7 +9,7 @@
       <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12">
         <div>
           <div>
-            <span style="padding: 10px; padding-top: 0px;">爱吃火锅的John B</span>
+            <span style="padding: 0px; padding-top: 0px;">爱吃火锅的John B</span>
           </div>
           <div style="float: left;padding: 10px;padding-bottom: 0px;">
             <el-avatar :size="30" :src="circleUrl"></el-avatar>

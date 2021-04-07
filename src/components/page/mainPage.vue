@@ -5,7 +5,7 @@
       <router-link to="/rrrr" slot="slotOne"><h3>路由1</h3></router-link>
       <router-link to="/hhhh" slot="slotOne"><h3>路由2</h3></router-link>
       <router-view slot="slotOne"></router-view>
-      <showCourse slot="slotTwo"></showCourse>
+      <videoPlayer slot="slotTwo"></videoPlayer>
       <run slot="slotThree"></run>
       <mapA slot="slotFour"></mapA>
     </navMenuTop>
@@ -18,6 +18,7 @@ import showPlan from '@/components/module/main/showPlan.vue'
 import showCourse from '@/components/module/main/showCourse.vue'
 import run from '@/components/module/main/run.vue'
 import mapA from '@/components/base/map.vue'
+import videoPlayer from '@/components/base/video.vue'
 export default {
   name: 'mainPage',
   data: function() {
@@ -26,7 +27,7 @@ export default {
           }
         },
   components:{
-    navMenuTop,showPlan,showCourse,run,mapA
+    navMenuTop,showPlan,showCourse,run,mapA,videoPlayer
   },
   methods:{
     clickItem:function(path){

@@ -1,11 +1,20 @@
 <template>
   <el-card class="box-card">
     <div slot="header" class="clearfix">
-      <span style="float: left; padding: 7px;">卡片名称</span>
+      <span style="float: left; padding: 7px;">{{message}}</span>
       <el-button style="float:right;padding-right: 10px;" type="text" icon="el-icon-arrow-right"></el-button>
     </div>
-    <div v-for="o in 4" :key="o" class="text item">
+    <!-- <div v-for="o in 4" :key="o" class="text item">
       {{'列表内容 ' + o }}
+    </div> -->
+    <div class="text item">
+      {{textOne}}
+    </div>
+    <div class="text item">
+      {{textTwo}}
+    </div>
+    <div class="text item">
+      {{textThree}}
     </div>
   </el-card>
 </template>
@@ -15,9 +24,11 @@
     name:"card",
     data:function(){
       return{
+        text: 'text内容',
         o:["1","2","3","4"]
       }
-    }
+    },
+    props:["message","textOne","textTwo","textThree"]
   }
 </script>
 
