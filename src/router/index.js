@@ -7,6 +7,7 @@ import myHomePage from '@/components/page/myHomePage.vue'
 import trainPage from '@/components/page/trainPage.vue'
 import planPage from '@/components/page/planPage.vue'
 import Amap from '@/components/base/map.vue'
+import video from '@/components/module/plan/video.vue'
 
 Vue.use(Router)
 
@@ -46,7 +47,14 @@ export default new Router({
     {
       path: '/plan',
       name: 'planPage',
-      component: planPage
+      component: planPage,
+      children:[
+          {
+            path:"video",
+            name:"video",
+            component:video
+          }
+      ]
     },
     {
       path: '/main',

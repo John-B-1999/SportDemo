@@ -146,14 +146,14 @@ export default {
       //   }
       //   // searchResult即是对应的驾车导航信息，相关数据结构文档请参考  https://lbs.amap.com/api/javascript-api/reference/route-search#m_DrivingResult
       // });
-      AMap.event.addListener(marker, "click", function(e) {
-        debugger;
-        //得到的数据
-      });
-      AMap.event.addListener(marker2, "click", function(e) {
-        debugger;
-        //得到的数据
-      });
+      // AMap.event.addListener(marker, "click", function(e) {
+      //   debugger;
+      //   //得到的数据
+      // });
+      // AMap.event.addListener(marker2, "click", function(e) {
+      //   debugger;
+      //   //得到的数据
+      // });
     }
   }
 };

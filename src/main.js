@@ -11,6 +11,10 @@ import axios from 'axios'
 import Vuex from 'vuex';
 import store from'./store/index.js'
 
+//Android按钮问题
+import Mui from 'vue-awesome-mui';
+Vue.use(Mui);
+
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 Vue.prototype.$http = axios
