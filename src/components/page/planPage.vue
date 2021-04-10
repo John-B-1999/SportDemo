@@ -8,12 +8,12 @@
         <router-view></router-view>
       </el-col>
     </el-row>
-    <!-- <el-drawer
+    <el-drawer
       title="我是标题"
       :visible.sync="flag"
-      :with-header="false">
+      :with-header="false" size='50%'>
       <router-view></router-view>
-    </el-drawer> -->
+    </el-drawer>
   </div>
 </template>
 
@@ -38,10 +38,8 @@
     methods:{
       change:function(data){
         this.flag = data;
-        console.log("222",this.flag);
-        console.log(this.$route.path);
-        this.$router.push('/plan/video');
-        console.log(this.$route.path);
+        var claData = this.classData;
+        this.$router.push({path:'/plan/video',query:{title:"111",mainText:"222"}});
       }
     }
   }

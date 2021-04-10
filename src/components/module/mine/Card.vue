@@ -10,10 +10,10 @@
     <div class="text item" style="font-size: 20px;">
       {{textOne}}
     </div>
-    <div class="text item">
+    <div class="text item" style="font-size: 14px;">
       {{textTwo}}
     </div>
-    <div class="text item">
+    <div class="text item" style="font-size: 10px;">
       {{textThree}}
     </div>
   </el-card>

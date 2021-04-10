@@ -9,9 +9,10 @@
     name:"greenProgress",
     data:function(){
       return{
-        progress:61
+        
       }
     },
+    props:["progress"],
       methods: {
         format(percentage) {
           return percentage === 100 ? '满' : `${percentage}%`;

@@ -17,12 +17,11 @@
    　　                  text-align: center;
    　　                  vertical-align: middle;">
                <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-                 <span class="font-family" style="font-size: 30px; float: left;">跑后拉伸</span>
+                 <span class="font-family" style="font-size: 30px; float: left;">{{title}}</span>
                </el-col>
                <div>&nbsp;</div>
                <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-                 <span class="font-family" style="font-size: 15px; float: left;">通过对大腿、小腿的拉伸促进血液循环、放松紧张的肌肉。建议每次跑步等有氧训练
-                  后进行练习。训练时要感受肌肉被拉伸，才能有更好的放松效果。</span>
+                 <span class="font-family" style="font-size: 15px; float: left;">{{mainText}}</span>
                </el-col>
             </div>
     <div>&nbsp;</div>
@@ -41,8 +40,14 @@
     components: {
       videoPlayer
     },
+    created() {
+      this.title = this.$route.query.title;
+      this.mainText = this.$route.query.mainText;
+    },
     data() {
       return {
+        title:"",
+        mainText:"",
         pictureImg: test,
         playerOptions: {
 //        playbackRates: [0.7, 1.0, 1.5, 2.0], //播放速度
