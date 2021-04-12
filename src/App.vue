@@ -18,7 +18,7 @@
           </el-col>
           <el-col :xs="5" :sm="4" :md="5" :lg="3" :xl="1">
             <div class="grid-content bg-purple-light">
-              <div>John B</div>
+              <div>{{username}}</div>
             </div>
           </el-col>
         </el-row>
@@ -43,7 +43,8 @@ export default {
   data () {
           return {
             visible: false ,
-            resData: null
+            resData: null,
+            username:'',
           }
         },
   components:{
@@ -51,6 +52,7 @@ export default {
   },
   created() {
     console.log(this);
+    this.username = this.$store.getters.getUserNameValue;
     this.testLogin();
     this.getLocation();
   },

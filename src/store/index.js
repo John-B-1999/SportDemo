@@ -5,17 +5,32 @@ Vue.use(Vuex)
 
 const store =  new Vuex.Store({
   state: {
-    isLogin: true
+    isLogin: false,
+    uid: 111,
+    username:'John B',
+    password:','
   },
   mutations: {
     //这里是set方法
     setIsLoginValue(state,isLogin){
       state.isLogin = isLogin
-    }
+    },
+    setUidValue(state,uid){
+      state.uid = uid
+    },
+    setUserNameValue(state,username){
+      state.username = username
+    },
+    setPasswordValue(state,password){
+      state.password = password
+    },
   },
   getters: {   
     //这里是get方法
-    getIsLoginValue:state => state.isLogin
+    getIsLoginValue:state => state.isLogin,
+    getUidValue:state => state.uid,
+    getUserNameValue:state => state.username,
+    getPasswordValue:state => state.password,
   },
   actions: {
     //这个部分我暂时用不上

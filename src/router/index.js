@@ -8,6 +8,8 @@ import trainPage from '@/components/page/trainPage.vue'
 import planPage from '@/components/page/planPage.vue'
 import Amap from '@/components/base/map.vue'
 import video from '@/components/module/plan/video.vue'
+import loginPage from '@/components/page/loginPage.vue'
+import registerPage from '@/components/page/registerPage.vue'
 
 Vue.use(Router)
 
@@ -60,6 +62,16 @@ export default new Router({
       path: '/main',
       name: 'mainPage',
       component: mainPage
+    },
+    {
+      path:'/login',
+      name:'login',
+      component:loginPage
+    },
+    {
+      path:'/register',
+      name:'register',
+      component:registerPage
     }
   ]
 })

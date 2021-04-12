@@ -27,17 +27,17 @@ import register from '@/components/module/Register.vue';
 
 export default {
 	data() {
-		// var validatePass = (rule, value, callback) => {
-		// 	if (value === '') {
-		// 		callback(new Error('请输入密码'));
-		// 	} else {
-		// 		if (this.ruleForm.checkPass !== '') {
-		// 			this.$refs.ruleForm.validateField('checkPass');
-		// 		}
+		var validatePass = (rule, value, callback) => {
+			if (value === '') {
+				callback(new Error('请输入密码'));
+			} else {
+				if (this.ruleForm.checkPass !== '') {
+					this.$refs.ruleForm.validateField('checkPass');
+				}
 
-		// 		callback();
-		// 	}
-		// };
+				callback();
+			}
+		};
 
 		return {
 			activeName: 'first',
@@ -62,13 +62,36 @@ export default {
 		},
 		//提交表单
 		submitForm(formName) {
+      let t = this
 			this.$refs[formName].validate(valid => {
 				if (valid) {
-					this.$message({
-						type: 'success',
-						message: '登录成功'
-					});
-					this.$router.push('home');
+          t.$http({
+                method: 'get',
+                url: '/api/User/login?password='+t.ruleForm.pass+'&userName='+t.ruleForm.name,
+             })
+             .then(function(response){
+               console.log("111",response);
+               if(response.data.code == 200){
+                 t.$message({
+                 	type: 'success',
+                 	message: '登录成功'
+                 });
+                 t.$store.commit("setIsLoginValue",true);
+                 t.$store.commit("setUserNameValue",t.ruleForm.name);
+                 t.$store.commit("setUidValue",response.data.entity);
+                 t.$store.commit("setPasswordValue",t.ruleForm.pass);
+                 console.log("111",t.$store);
+                 t.$router.push('/');
+               }else{
+                 t.$message({
+                 	type: 'fail',
+                 	message: '用户名不存在或者密码错误'
+                 });
+               }
+             })
+             .catch(function(error){
+               console.log(error)
+             })
 				} else {
 					console.log('error submit!!');
 					return false;

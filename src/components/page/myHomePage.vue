@@ -57,13 +57,14 @@
   export default{
     name:"myHomePage",
     created() {
+      this.username = this.$store.getters.getUserNameValue;
     },
     data:function(){
       return{
         elIconUser : 'el-icon-user',
         elIconPhone : 'el-icon-phone',
         elIconMore : 'el-icon-more',
-        username:'爱吃火锅的John B',
+        username:'',
         sport:{time:'1526',weight:'79',thisWeekTime:'30',lastDate:'3'},
         //time总运动时间 weight用户体重 thisWeekTime本周运动时间 lastDate距离上次记录身体数据时间
         table: false,
