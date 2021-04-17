@@ -17,7 +17,7 @@
                   </el-col>
                   <div>&nbsp;</div>
                   <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-                    <span class="font-family" style="font-size: 12px; float: left;">&nbsp;{{textTwo}}</span>
+                    <!-- <span class="font-family" style="font-size: 12px; float: left;">&nbsp;{{textTwo}}</span> -->
                   </el-col>
                   <div>&nbsp;</div>
                   <div>&nbsp;</div>
@@ -46,8 +46,11 @@
         console.log("点击");
       },
       clickToClass:function(){
-        console.log("111");
-        this.$emit('changeFlag',true);
+        var data = {
+          f : true,
+          courseId : this.$props.textTwo,
+        }
+        this.$emit('changeFlag',data);
       }
     }
   }

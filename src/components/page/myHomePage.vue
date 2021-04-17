@@ -15,7 +15,7 @@
         <el-button type="primary" @click = "dialog = true">填写身体数据<i class="el-icon-upload el-icon--right"></i></el-button>
       </el-col>
     </el-row>
-    
+
     <el-drawer
       :before-close="handleClose"
       v-model="dialog"
@@ -27,7 +27,7 @@
       >
         <div>
           <div style="margin: 20px;"></div>
-          <el-form :label-position="right" label-width="80px" :model="formLabelAlign">
+          <el-form :label-position="labelPosition" label-width="80px" :model="formLabelAlign">
             <el-form-item label="身高">
               <el-input v-model="formLabelAlign.height"></el-input>
             </el-form-item>
@@ -44,8 +44,11 @@
               <el-input v-model="formLabelAlign.hipline"></el-input>
             </el-form-item>
           </el-form>
-          <el-button type="primary" @click='submitForm()'><i>提交</i></el-button>
         </div>
+        <div class="demo-drawer__footer">
+              <el-button @click="cancelForm">取 消</el-button>
+              <el-button type="primary" @click="$refs.drawer.closeDrawer()" :loading="loading">{{ loading ? '提交中 ...' : '确 定' }}</el-button>
+            </div>
     </el-drawer>
   </div>
 </template>
@@ -58,26 +61,28 @@
     name:"myHomePage",
     created() {
       this.username = this.$store.getters.getUserNameValue;
+      this.uid = this.$store.getters.getUidValue;
     },
     data:function(){
       return{
+        labelPosition: 'right',
         elIconUser : 'el-icon-user',
         elIconPhone : 'el-icon-phone',
         elIconMore : 'el-icon-more',
+        uid:'',
         username:'',
         sport:{time:'1526',weight:'79',thisWeekTime:'30',lastDate:'3'},
         //time总运动时间 weight用户体重 thisWeekTime本周运动时间 lastDate距离上次记录身体数据时间
-        table: false,
         dialog: false,
         loading: false,
         formLabelWidth: '80px',
         timer: null,
         formLabelAlign: {
           height: '',
-          weight:'',
-          bust:'',
-          waistline:'',
-          hipline:''
+          weight: '',
+          bust: '',
+          waistline: '',
+          hipline: ''
         }
       }
     },
@@ -86,7 +91,37 @@
     },
     methods: {
     submitForm(){
-      console.log("111");
+      console.log("myhome");
+      var t = this;
+      t.$http({
+            method: 'post',
+            url: '/api/UserBodyData/update',
+            data:{
+              bust: t.formLabelAlign.bust,
+              height: t.formLabelAlign.height,
+              hipline: t.formLabelAlign.hipline,
+              userId: 789,
+              waist: t.formLabelAlign.waistline,
+              weight: t.formLabelAlign.weight,
+            }
+         })
+         .then(function(response){
+           console.log(response);
+           if(response.data.code == 200){
+             t.$message({
+             	type: 'success',
+             	message: '修改成功',
+             });
+           }else{
+             t.$message({
+             	type: 'fail',
+             	message: '修改失败'
+             });
+           }
+         })
+         .catch(function(error){
+           console.log(error)
+         })
     },
     handleClose(done) {
       if (this.loading) {
@@ -94,6 +129,7 @@
       }
       this.$confirm('确定要提交表单吗？')
         .then(_ => {
+          this.$options.methods.submitForm.bind(this)();
           this.loading = true;
           this.timer = setTimeout(() => {
             done();
