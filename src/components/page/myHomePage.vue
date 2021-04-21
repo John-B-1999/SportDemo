@@ -13,6 +13,7 @@
       </el-col>
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
         <el-button type="primary" @click = "dialog = true">填写身体数据<i class="el-icon-upload el-icon--right"></i></el-button>
+        <el-button type="primary" @click = "userDialog = true">更改用户信息<i class="el-icon-upload el-icon--right"></i></el-button>
       </el-col>
     </el-row>
 
@@ -50,6 +51,30 @@
               <el-button type="primary" @click="$refs.drawer.closeDrawer()" :loading="loading">{{ loading ? '提交中 ...' : '确 定' }}</el-button>
             </div>
     </el-drawer>
+
+    <el-drawer
+      :before-close="handleClose"
+      v-model="userDialog"
+      direction="btt"
+      size ='70%'
+      :visible.sync = "userDialog"
+      custom-class="demo-drawer"
+      ref="drawer"
+      >
+        <div>
+          <div style="margin: 20px;"></div>
+          <el-form :label-position="labelPosition" label-width="80px" :model="formLabelAlign">
+            <el-form-item label="身高">
+              <el-input v-model="formLabelAlign.height"></el-input>
+            </el-form-item>
+            
+          </el-form>
+        </div>
+        <div class="demo-drawer__footer">
+              <el-button @click="cancelForm">取 消</el-button>
+              <el-button type="primary" @click="$refs.drawer.closeDrawer()" :loading="loading">{{ loading ? '提交中 ...' : '确 定' }}</el-button>
+            </div>
+    </el-drawer>
   </div>
 </template>
 
@@ -74,6 +99,7 @@
         sport:{time:'1526',weight:'79',thisWeekTime:'30',lastDate:'3'},
         //time总运动时间 weight用户体重 thisWeekTime本周运动时间 lastDate距离上次记录身体数据时间
         dialog: false,
+        userDialog: false,
         loading: false,
         formLabelWidth: '80px',
         timer: null,

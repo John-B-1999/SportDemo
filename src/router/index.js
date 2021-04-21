@@ -10,6 +10,8 @@ import Amap from '@/components/base/map.vue'
 import video from '@/components/module/plan/video.vue'
 import loginPage from '@/components/page/loginPage.vue'
 import registerPage from '@/components/page/registerPage.vue'
+import running from '@/components/module/train/running.vue'
+import mapA from '@/components/module/train/map.vue'
 
 Vue.use(Router)
 
@@ -51,7 +53,19 @@ export default new Router({
     {
       path: '/travel',
       name: 'trainPage',
-      component: trainPage
+      component: trainPage,
+      children:[
+        {
+          path:"running",
+          name:"running",
+          component:running
+        },
+        {
+          path:"mapA",
+          name:"mapA",
+          component:mapA
+        }
+      ]
     },
     {
       path: '/plan',

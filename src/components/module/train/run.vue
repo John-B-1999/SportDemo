@@ -26,7 +26,7 @@
           　　                  text-align: center;
           　　                  vertical-align: middle;">
           <el-button style="" type="text">目标</el-button>
-          <el-button type="primary">开始</el-button>
+          <el-button type="primary" @click = "startRunning()">开始</el-button>
           <el-button style="" type="text">更多</el-button>
           </div>
           </div>
@@ -47,7 +47,15 @@
     props:["metre","grade"],
     components:{
       greenProgress
-    }
+    },
+	methods:{
+		startRunning:function(){
+			var data ={
+				f : true,
+			}
+			this.$emit("running",data);
+		}
+	}
   }
 </script>
 
