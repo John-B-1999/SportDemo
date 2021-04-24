@@ -2,20 +2,13 @@
   <el-card shadow="always">
     <el-row>
       <el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
-        <div style="padding: 5px;padding-bottom: 0px; padding-right: 0px;">
+        <div style="padding: 10px;padding-bottom: 10px; padding-right: 0px;">
           <el-avatar :size="50" :src="circleUrl"></el-avatar>
         </div>
       </el-col>
       <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12">
-        <div>
-          <div>
-            <span style="padding: 0px; padding-top: 0px;">{{name}}</span>
-          </div>
-          <div style="float: left;padding: 10px;padding-bottom: 0px;">
-            <el-avatar :size="30" :src="circleUrl"></el-avatar>
-            &nbsp;
-            <el-avatar :size="30" :src="circleUrl"></el-avatar>
-          </div>
+        <div style="padding: 15px;padding-bottom: 10px; padding-right: 10px;">
+          <span style="font-size: 30px;">{{name}}</span>
         </div>
       </el-col>
       <el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">

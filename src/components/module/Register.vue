@@ -65,18 +65,18 @@ export default {
 					      }
 					   })
 					   .then(function(response){
-               if(response.data.code == 200){
-                 t.$message({
-                 	type: 'success',
-                 	message: '注册成功'
-                 });
-                 t.$router.push('/login');
-               }else{
-                 t.$message({
-                 	type: 'fail',
-                 	message: '注册失败，缺少必要参数'
-                 });
-               }
+						   if(response.data.code == 200){
+							 t.$message({
+								type: 'success',
+								message: '注册成功'
+							 });
+							 t.$router.push('/login');
+						   }else{
+							 t.$message({
+								type: 'fail',
+								message: '注册失败，缺少必要参数'
+							 });
+						   }
 					   })
 					   .catch(function(error){
 					     console.log(error)

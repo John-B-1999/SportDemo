@@ -1,51 +1,80 @@
 <template>
  <div class="player">
-   <video-player class="video-player vjs-custom-skin"
-                 ref="videoPlayer"
-                 :playsinline="true"
-                 style="object-fit:fill"
-                 :options="playerOptions"
-                 :x5-video-player-fullscreen="true"
-                 @pause="onPlayerPause($event)"
-                 @play="onPlayerPlay($event)"
-                 @fullscreenchange="onFullscreenChange($event)"
-                 @click="fullScreen"
-   >
-   </video-player>
+   <el-row v-show = "!flag">
+     <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+       <video-player class="video-player vjs-custom-skin"
+                     ref="videoPlayer"
+                     :playsinline="true"
+                     style="object-fit:fill"
+                     :options="playerOptions"
+                     :x5-video-player-fullscreen="true"
+                     @pause="onPlayerPause($event)"
+                     @play="onPlayerPlay($event)"
+                     @fullscreenchange="onFullscreenChange($event)"
+                     @click="fullScreen"
+       >
+       </video-player>
+       <div>&nbsp;</div>
+     </el-col>
+     <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+       <div style="display: table-cell;
+       　　                  text-align: center;
+       　　                  vertical-align: middle;">
+                   <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+                     <span class="font-family" style="font-size: 30px; float: left;">{{title}}</span>
+                   </el-col>
+                   <div>&nbsp;</div>
+                   <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+                     <span class="font-family" style="font-size: 15px; float: left;">{{mainText}}</span>
+                   </el-col>
+                </div>
+        <div>&nbsp;</div>
+     </el-col>
+     <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+       <div style="float: left;">
+         <el-tag>跑步后进行</el-tag>
+         <el-tag>无需器械</el-tag>
+         <el-tag>无需器械</el-tag>
+         <el-tag>无需器械</el-tag>
+       </div>
+       <div>&nbsp;</div>
+       <div>&nbsp;</div>
+       <div>&nbsp;</div>
+       <div>&nbsp;</div>
+       <div>&nbsp;</div>
+       <div>&nbsp;</div>
+     </el-col>
+     <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+       <div style="text-align:center;">
+         <el-button type="success" @click = "flag = true">结束</el-button>
+       </div>
+     </el-col>
+   </el-row>
+   <rate v-show="flag"></rate>
    <div>&nbsp;</div>
-   <div style="display: table-cell;
-   　　                  text-align: center;
-   　　                  vertical-align: middle;">
-               <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-                 <span class="font-family" style="font-size: 30px; float: left;">{{title}}</span>
-               </el-col>
-               <div>&nbsp;</div>
-               <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-                 <span class="font-family" style="font-size: 15px; float: left;">{{mainText}}</span>
-               </el-col>
-            </div>
-    <div>&nbsp;</div>
-    <div style="float: left;">
-      <el-tag>跑步后进行</el-tag>
-      <el-tag>无需器械</el-tag>
-    </div>
+   <div>&nbsp;</div>
+   <div>&nbsp;</div>
+   <el-button  v-show="flag" type="success" @click = "endClick()">提交</el-button>
  </div>
 </template>
 
 <script>
   import test from '@/assets/logo.png'
   import {videoPlayer} from 'vue-video-player';
+  import rate from '@/components/module/plan/rate.vue'
 
   export default {
     components: {
-      videoPlayer
+      videoPlayer,rate
     },
     created() {
       this.title = this.$route.query.title;
       this.mainText = this.$route.query.mainText;
+      this.courseId = this.$route.query.courseId;
     },
     data() {
       return {
+        courseId:'',
         title:"",
         mainText:"",
         pictureImg: test,
@@ -71,10 +100,42 @@
             // remainingTimeDisplay: false,
             fullscreenToggle: true  //全屏按钮
           }
-        }
+        },
+        flag:false,
       }
     },
     methods: {
+      endClick:function(){
+        var t = this;
+        var currentDate = new Date();
+        t.$http({
+          method: 'post',
+          url: '/api/SportHistory/insert',
+          data:{
+            courseId: t.courseId,
+            endTime: currentDate,
+            startTime: currentDate,
+            userId: t.$store.getters.getUidValue,
+          }
+       })
+       .then(function(response){
+         if(response.data.code == 200){
+         t.$message({
+          type: 'success',
+          message: '保存成功'
+         });
+         }else{
+         t.$message({
+          type: 'fail',
+          message: '保存失败，请检查网络连接'
+         });
+         }
+         t.$router.push('/plan');
+       })
+       .catch(function(error){
+         console.log(error)
+       })
+      },
       fullScreen() {
         const player = this.$refs.videoPlayer.player
         player.requestFullscreen()//调用全屏api方法

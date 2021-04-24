@@ -53,7 +53,7 @@
     </el-drawer>
 
     <el-drawer
-      :before-close="handleClose"
+      :before-close="handleClosePass"
       v-model="userDialog"
       direction="btt"
       size ='70%'
@@ -64,10 +64,13 @@
         <div>
           <div style="margin: 20px;"></div>
           <el-form :label-position="labelPosition" label-width="80px" :model="formLabelAlign">
-            <el-form-item label="身高">
-              <el-input v-model="formLabelAlign.height"></el-input>
+            <el-form-item label="原密码">
+              <el-input v-model="oldPassword"></el-input>
             </el-form-item>
-            
+            <el-form-item label="新密码">
+              <el-input v-model="newPassword"></el-input>
+            </el-form-item>
+
           </el-form>
         </div>
         <div class="demo-drawer__footer">
@@ -109,7 +112,9 @@
           bust: '',
           waistline: '',
           hipline: ''
-        }
+        },
+        oldPassword:'',
+        newPassword:'',
       }
     },
     components:{
@@ -149,6 +154,35 @@
            console.log(error)
          })
     },
+    submitFormPass(){
+      console.log("myhome");
+      var t = this;
+      t.$http({
+            method: 'post',
+            url: '/api/User/update',
+            data:{
+              userName:t.username,
+              password:t.newPassword,
+            }
+         })
+         .then(function(response){
+           console.log(response);
+           if(response.data.code == 200){
+             t.$message({
+             	type: 'success',
+             	message: '修改成功',
+             });
+           }else{
+             t.$message({
+             	type: 'fail',
+             	message: '修改失败'
+             });
+           }
+         })
+         .catch(function(error){
+           console.log(error)
+         })
+    },
     handleClose(done) {
       if (this.loading) {
         return;
@@ -167,9 +201,32 @@
         })
         .catch(_ => {});
     },
+    handleClosePass(done) {
+      if (this.loading) {
+        return;
+      }
+      this.$confirm('确定要提交表单吗？')
+        .then(_ => {
+          this.$options.methods.submitFormPass.bind(this)();
+          this.loading = true;
+          this.timer = setTimeout(() => {
+            done();
+            // 动画关闭需要一定的时间
+            setTimeout(() => {
+              this.loading = false;
+            }, 100);
+          }, 200);
+        })
+        .catch(_ => {});
+    },
     cancelForm() {
       this.loading = false;
       this.dialog = false;
+      clearTimeout(this.timer);
+    },
+    cancelFormPass() {
+      this.loading = false;
+      this.userDialog = false;
       clearTimeout(this.timer);
     }
   }

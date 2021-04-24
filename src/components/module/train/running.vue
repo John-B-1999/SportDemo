@@ -64,7 +64,7 @@
     name: 'running',
     data:function(){
       return{
-        metre: 0,
+        metre: 3,
         speed:'00`00``',
         usedTime:'00:00:00',
         startTime:'',
@@ -85,6 +85,7 @@
        $route: {
          handler:  function (val, oldVal){
            if(val.path == "/travel/running"){
+             this.initTime();
              this.startRunning();
              this.countDistance();
            }
@@ -107,9 +108,41 @@
     },
     methods:{
       endClick:function(){
+        var t = this;
         this.flag = true;
         clearInterval(this.timerOne);
         clearInterval(this.timerTwo);
+        t.$http({
+              method: 'post',
+              url: '/api/SportHistory/insert',
+              data:{
+                courseId: 50,
+                distance: 1,
+                endTime: t.currentTime,
+                // energy: 111,
+                sportHour: 1,
+                sportMinute: 1,
+                sportSecond: 1,
+                startTime: t.startTime,
+                userId: t.$store.getters.getUidValue,
+              }
+           })
+           .then(function(response){
+        	   if(response.data.code == 200){
+        		 t.$message({
+        			type: 'success',
+        			message: '保存成功'
+        		 });
+        	   }else{
+        		 t.$message({
+        			type: 'fail',
+        			message: '保存失败，请检查网络连接'
+        		 });
+        	   }
+           })
+           .catch(function(error){
+             console.log(error)
+           })
       },
       initTime:function(){
         this.startTime = new Date();
@@ -124,8 +157,11 @@
         	// leftd = Math.floor(lefttime/(1000*60*60*24)),  //计算天数
         	lefth = Math.floor(lefttime/(1000*60*60)%24),  //计算小时数
         	leftm = Math.floor(lefttime/(1000*60)%60),  //计算分钟数
-        	lefts = Math.floor(lefttime/1000%60);  //计算秒数
+          // speedLeftm = (leftm/this.metre)%1,
+        	lefts = Math.floor(lefttime/1000%60); //计算秒数
+          // speedLefts = (lefts/this.metre)%1;
         	this.usedTime = lefth + ":" + leftm + ":" + lefts;
+          // this.speed =  speedLeftm + "`" + speedLefts + "``";
         	console.log("currentTime",this.currentTime);
         	console.log("usedTime",this.usedTime);
         }, 1000);

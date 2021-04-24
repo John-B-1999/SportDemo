@@ -9,6 +9,7 @@
   import run from '@/components/module/train/run.vue'
   import running from '@/components/module/train/running.vue'
   import test from '@/components/module/train/test.vue'
+  import showPlan from '@/components/module/train/showPlan.vue'
   export default {
     name: 'trainPage',
     data:function(){

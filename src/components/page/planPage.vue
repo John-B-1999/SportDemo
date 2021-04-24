@@ -78,7 +78,7 @@
            .then(function(response){
              t.course = response.data.entity;
              console.log("course",t.course);
-             t.$router.push({path:'/plan/video',query:{title:t.course.courseName,mainText:t.course.courseAccount}});
+             t.$router.push({path:'/plan/video',query:{title:t.course.courseName,mainText:t.course.courseAccount,courseId:t.courseId}});
            })
            .catch(function(error){
              console.log(error)
